@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
 import MapComponent from "./Map";
 
 import "./index.css";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Router><MapComponent /></Router>, rootElement);
+ReactDOM.render(<Router><App /></Router>, rootElement);
 
 
 // import React from 'react';

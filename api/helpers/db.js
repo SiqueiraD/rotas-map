@@ -7,5 +7,5 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.MONGODB_URI || config.connectionString, { useCreateIndex: true, useNewUrlParser: true });
 
 module.exports = {
-    User: require('api/models/user.model')
+    Map: require('api/models/map.model')
 };

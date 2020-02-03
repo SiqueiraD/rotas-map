@@ -5,12 +5,8 @@ var mapSchema = new Schema({
    title: {
       type: String
    },
-   body: {
-      type: String
-   },
-   author: {
-      type: mongoose.Schema.User.ObjectId,
-      required: true
+   waypoints: {
+      type: Object
    },
    Created_date: {
       type: Date,

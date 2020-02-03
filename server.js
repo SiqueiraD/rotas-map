@@ -4,15 +4,14 @@ const express = require('express'),
 app = express(),
 port = process.env.PORT || 3000,
 mongoose = require('mongoose'),
-bodyParser = require('body-parser');
+bodyParser = require('body-parser'),
+path = require('path');
 
 const guard = require('express-jwt-permissions')({
     permissionsProperty: 'scope'
 });
 const cors = require('cors');
 
-const Message = require('api/models/msg.model');
-const jwt = require('api/helpers/jwt');
 const errorHandler = require('api/helpers/error-handler');
 // mongoose.connect('mongodb://localhost/msgdb', {
 //     useNewUrlParser: true
@@ -23,18 +22,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(express.static(path.resolve(__dirname, 'build')));
+// api routes
+app.use('/maps', require('api/routes/map.routes'));
 // index
 app.use('/', (req,res)=>{
-    res.sendFile('index.html', { root: 'public' });
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
-// use JWT auth to secure the api
-app.use(jwt());
 
-// api routes
-app.use('/users', require('api/routes/user.routes'));
-app.use('/messages', require('api/routes/msg.routes'));
-app.use(require('api/routes/map.routes'));
 
 app.listen(port);
 console.log('Message RESTful API server started on: ' + port);

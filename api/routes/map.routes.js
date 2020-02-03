@@ -5,8 +5,8 @@ const maps = require('../controllers/map.controller');
 
 // routes
 //router.all('*', guard.check('status'));
-router.get('/:mapAuthor', maps.get_map_by_author);
-router.post('/:mapAuthor', maps.set_map_by_author);
-router.param('mapAuthor', maps.check_map_by_author);
+router.get('/', maps.get_map_by_author);
+router.get('/:id', maps.get_map_by_id)
+router.post('/', maps.set_map_by_author);
 
 module.exports = router;
