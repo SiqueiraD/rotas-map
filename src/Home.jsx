@@ -46,7 +46,7 @@ class Home extends React.Component {
         <div className='Home'>
           <h1>Roteirizador</h1>
           <div className='historico'>
-            <h2>ola</h2>
+            <h2>sem histórico</h2>
           </div>
         </div>
 
